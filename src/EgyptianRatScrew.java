@@ -18,7 +18,7 @@ public class EgyptianRatScrew
 
         for(int counter = 0; counter < deckSize; counter ++)
         {
-            if(counter < 26)
+            if(counter < deckSize/2)
             {
                 player1.add(deck.dealCard());
             }
