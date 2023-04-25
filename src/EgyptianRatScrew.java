@@ -15,7 +15,6 @@ public class EgyptianRatScrew
         DeckOfCards deck = new DeckOfCards();
         deck.shuffle();
 
-
         for(int counter = 0; counter < deckSize; counter ++)
         {
             if(counter < deckSize/2)
