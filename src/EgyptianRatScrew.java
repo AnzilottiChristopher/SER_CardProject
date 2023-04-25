@@ -13,5 +13,6 @@ public class EgyptianRatScrew
         // Create player 2 like Player player2 = new Player(keyboardButton);
 
     scan.close();
+
 }
 }
