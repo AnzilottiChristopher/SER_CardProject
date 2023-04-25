@@ -1,31 +1,18 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EgyptianRatScrew 
 {    public static void main(String[] args) throws Exception 
     {
-        //Creating lists that will hold cards
-        ArrayList<Card> player1 = new ArrayList<Card>();
-        ArrayList<Card> player2 = new ArrayList<Card>();
-        ArrayList<Card> middlePile = new ArrayList<Card>();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the button player1 would like to press when you want to slap the deck. Only your first input will count.");
+        char keyboardButton = scan.next().charAt(0);
+        // Create player 1 like Player player1 = new Player(keyboardButton);
+        System.out.println("Enter the button player2 would like to press when you want to slap the deck. Only your first input will count.");
+        keyboardButton = scan.next().charAt(0);
+        // Create player 2 like Player player2 = new Player(keyboardButton);
 
-        //Deck Size
-        final int deckSize = 52;
+    scan.close();
 
-        //Creating the deck and shuffling it
-        DeckOfCards deck = new DeckOfCards();
-        deck.shuffle();
-
-
-        for(int counter = 0; counter < deckSize; counter ++)
-        {
-            if(counter < deckSize/2)
-            {
-                player1.add(deck.dealCard());
-            }
-            else
-            {
-                player2.add(deck.dealCard());
-            }
-        }
-    }
+}
 }
