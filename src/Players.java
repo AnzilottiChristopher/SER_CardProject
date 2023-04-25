@@ -3,28 +3,36 @@ import java.util.ArrayList;
 public class Players 
 {
     //Creating lists that will hold cards
-    private ArrayList<Card> player1;
-    private ArrayList<Card> player2;
-    private DeckOfCards deck = new DeckOfCards();
+    private ArrayList<Card> hand;
     private final static int deckSize = 52;
+    private char buttonPress;
 
-    //Creating the deck and shuffling it
-    public Players()
+    //Constructor that initializes the player with a button press
+    public Players(char buttonPress)
     {
-        deck.shuffle();
-        this.player1  = new ArrayList<Card>(deckSize/2);
-        this.player2 = new ArrayList<Card>(deckSize/2);
+        this.hand = new ArrayList<Card>(deckSize/2);
+        this.buttonPress = buttonPress;
     }
 
-    public void players()
+
+    //Setter and getter
+    public Card dealCard()
     {
-        for(int counter = 0; counter < deckSize/2; counter ++)
-        {
-            if(counter < deckSize/2)
-            {
-                this.player1.add(deck.dealCard());
-            }
-        }
+        return hand.remove(0);
+    }
+
+    public char getButton()
+    {
+        return buttonPress;
+    }
+    public void setButton(char buttonPress)
+    {
+        this.buttonPress = buttonPress;
+    }
+
+    public void addCard(Card card)
+    {
+        hand.add(card);
     }
     
 }
