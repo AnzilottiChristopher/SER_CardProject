@@ -5,21 +5,6 @@ import java.awt.*;
 
 public class readConsoleTest extends JFrame
 {
-
-    //! Can't find easy way to get immediate input while testing in VSCode (IDE's) which could mean that it only doesn't work within IDE
-    
-    //Todo Figure out how to get terminal to immediately read input
-
-                                //Or
-                                
-    //Todo Figure out how to get Swing Working 
-
-    
-
-
-
-    //!This is Swing Working to get an input
-   
     private JTextField textField;
     private boolean clearingText = false;
 
@@ -51,24 +36,28 @@ public class readConsoleTest extends JFrame
         frame.setVisible(true);
     }
 
-    private void handleInput() {
+    public String handleInput() {
         String input = textField.getText();
         if (input.equals("exit")) {
             System.out.println("Exiting...");
             System.exit(0);
         } else if (!clearingText) {
-            System.out.println("Input was: " + input);
+            SwingUtilities.invokeLater(() -> {
+                clearingText = true;
+                textField.setText("");
+                clearingText = false;
+            });
+            //System.out.println(input);
+            return input;
         }
-        SwingUtilities.invokeLater(() -> {
-            clearingText = true;
-            textField.setText("");
-            clearingText = false;
-        });
+        
+        //Under assumption we never make it here
+        return input;
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(readConsoleTest::new);
-    }
+    // public static void main(String[] args) {
+    //     SwingUtilities.invokeLater(readConsoleTest::new);
+    // }
 }
 
 
