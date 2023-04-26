@@ -3,12 +3,12 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
-public class readConsoleTest extends JFrame
+public class GUI_Input extends JFrame
 {
     private JTextField textField;
     private boolean clearingText = false;
 
-    public readConsoleTest() {
+    public GUI_Input() {
         JFrame frame = new JFrame("Read Console Test");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

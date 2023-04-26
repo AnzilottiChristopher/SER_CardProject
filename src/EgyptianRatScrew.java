@@ -37,7 +37,7 @@ public class EgyptianRatScrew
        //SwingUtilities.invokeLater(readConsoleTest::new);
 
         boolean event = true;
-        readConsoleTest gui = new readConsoleTest();
+        GUI_Input gui = new GUI_Input();
         while(event)
         {
             if(gui.handleInput().equalsIgnoreCase("a"))
