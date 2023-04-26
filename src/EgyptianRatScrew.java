@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Handler;
+
+import javax.swing.SwingUtilities;
 
 public class EgyptianRatScrew 
 {    public static void main(String[] args) throws Exception 
@@ -30,7 +33,25 @@ public class EgyptianRatScrew
        System.out.println(player1.getHand() + ""+ player1.getNumItems()+ "\n");
        System.out.println(player2.getHand()+ ""+ player2.getNumItems());
 
-    scan.close();
 
-}
+       //SwingUtilities.invokeLater(readConsoleTest::new);
+
+        boolean event = true;
+        GUI_Input gui = new GUI_Input();
+        while(event)
+        {
+            if(gui.handleInput().equalsIgnoreCase("a"))
+            {
+                System.out.println("Hello");
+                break;
+            }
+        }
+
+        scan.close();
+
+    }
+
+
+
+    
 }
