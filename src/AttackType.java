@@ -4,5 +4,4 @@ public enum AttackType {
     QUEEN_ATTACK,
     KING_ATTACK,
     ACE_ATTACK,
-    TEN_SAVE,
 }

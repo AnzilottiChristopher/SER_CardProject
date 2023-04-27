@@ -56,9 +56,9 @@ public class GUI_Input extends JFrame
         return input;
     }
 
-    // public static void main(String[] args) {
-    //     SwingUtilities.invokeLater(readConsoleTest::new);
-    // }
+    public void clearText(){
+        textField.setText("");
+    }
 }
 
 
