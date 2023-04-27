@@ -59,6 +59,7 @@ public class EgyptianRatScrew {
         boolean player1CardPlace = true;
         boolean player2CardPlace = false;
 
+
         // Game logic starts here
         while (!player1.isWin() && !player2.isWin()) {
 
@@ -116,6 +117,12 @@ public class EgyptianRatScrew {
                             }
                             middlePile.setDoubleEvent(false);
                             middlePile.setSandwichEvent(false);
+
+
+                            //System.out.println("player 1 has");
+                            //System.out.println(player1.getNumItems());
+
+                            
                             break;
                         }
                         // If player 2 slaps, give cards to player 2
@@ -125,6 +132,11 @@ public class EgyptianRatScrew {
                             }
                             middlePile.setDoubleEvent(false);
                             middlePile.setSandwichEvent(false);
+
+                            //System.out.println("player 2 has");
+                            //System.out.println(player2.getNumItems());
+
+
                             break;
                         }
 
@@ -132,12 +144,17 @@ public class EgyptianRatScrew {
                 }
             }
 
-        }
+            if(player1.getNumItems() == 0)
+            {
+                System.out.println("Player 1 wins!");
+                break;
+            }
+            else if(player2.getNumItems() == 0)
+            {
+                System.out.println("Player 2 wins!");
+                break;
+            }
 
-        if (player1.isWin()) {
-            System.out.println("Player 1 wins!");
-        } else {
-            System.out.println("Player 2 wins!");
         }
 
         scan.close();

@@ -25,6 +25,7 @@ public class Card {
     
    public static void printCard(Card card)
    {
+      //These current unicode values don't show up in Terminal IDK why
       String suit = null;
       if(card.getSuit().equalsIgnoreCase("diamonds"))
       {
