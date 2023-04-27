@@ -108,8 +108,8 @@ public class EgyptianRatScrew {
                             middlePile.setSandwichEvent(false);
 
 
-                            //System.out.println("player 1 has");
-                            //System.out.println(player1.getNumItems());
+                            System.out.println("player 1 has");
+                            System.out.println(player1.getNumItems());
 
                             
                             break;
@@ -122,8 +122,8 @@ public class EgyptianRatScrew {
                             middlePile.setDoubleEvent(false);
                             middlePile.setSandwichEvent(false);
 
-                            //System.out.println("player 2 has");
-                            //System.out.println(player2.getNumItems());
+                            System.out.println("player 2 has");
+                            System.out.println(player2.getNumItems());
 
 
                             break;
