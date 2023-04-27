@@ -48,10 +48,11 @@ public class GUI_Input extends JFrame
                 clearingText = false;
             });
             //System.out.println(input);
-            return input;
+                return input;
+            
+            
         }
         
-        //Under assumption we never make it here
         return input;
     }
 

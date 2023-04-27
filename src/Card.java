@@ -2,19 +2,61 @@
 // Card class represents a playing card.
 
 public class Card {
-    private final String face; // face of card ("Ace", "Deuce", ...)
-    private final String suit; // suit of card ("Hearts", "Diamonds", ...)
+   private final String face; // face of card ("Ace", "Deuce", ...)
+   private final String suit; // suit of card ("Hearts", "Diamonds", ...)
  
-    // two-argument constructor initializes card's face and suit
-    public Card(String cardFace, String cardSuit) {
-       this.face = cardFace; // initialize face of card
-       this.suit = cardSuit; // initialize suit of card
-    } 
+   // two-argument constructor initializes card's face and suit
+   public Card(String cardFace, String cardSuit) {
+      this.face = cardFace; // initialize face of card
+      this.suit = cardSuit; // initialize suit of card
+   } 
  
-    // return String representation of Card
-    public String toString() {             
-       return face + " of " + suit;        
-    }                
+   public String getFace(){
+   return this.face;
+   }
+   public String getSuit(){
+   return this.suit;
+   }
+    
+   // return String representation of Card
+   public String toString() {             
+      return face + " of " + suit;        
+   }    
+    
+   public static void printCard(Card card)
+   {
+      //These current unicode values don't show up in Terminal IDK why
+      String suit = null;
+      if(card.getSuit().equalsIgnoreCase("diamonds"))
+      {
+         suit = "D";
+      }
+      else if(card.getSuit().equalsIgnoreCase("spades"))
+      {
+         suit = "S";
+      }
+      else if(card.getSuit().equalsIgnoreCase("hearts"))
+      {
+         suit = "H";
+      }
+      else if(card.getSuit().equalsIgnoreCase("clubs"))
+      {
+         suit = "C";
+      }
+
+      System.out.println("┌─────────┐");
+
+      // print the card rank and suit
+      System.out.printf("│%s        │\n", suit);
+      System.out.printf("│         │\n");
+      System.out.printf("│    %s    │\n", card.getFace());
+      System.out.printf("│         │\n");
+      System.out.printf("│        %s│\n", suit);
+
+      // print the bottom line of the card
+      System.out.println("└─────────┘");
+
+   }
  } 
  
  
