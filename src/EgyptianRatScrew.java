@@ -65,7 +65,7 @@ public class EgyptianRatScrew {
 
             
 
-            if(player1CardPlace)
+            if(player1CardPlace && !player2CardPlace)
             {
                 EgyptianRatScrew.playerHandler(gui, player1, middlePile);
 
@@ -76,7 +76,7 @@ public class EgyptianRatScrew {
                 // Thread.sleep(300);
             }
 
-            if(player2CardPlace)
+            if(player2CardPlace && !player1CardPlace)
             {
                 EgyptianRatScrew.playerHandler(gui, player2, middlePile);
 
@@ -87,13 +87,48 @@ public class EgyptianRatScrew {
                 // Thread.sleep(300);
             }
            
-
+            EgyptianRatScrew.gameEventHandler(middlePile, gui, player1, player2);
             
 
             // Every time a player places a card, we must check for an attack, event, or if
             // someone has won
 
-            // Checking for an event (double or sandwich)
+            
+
+            if(player1.getNumItems() == 0)
+            {
+                System.out.println("Player 2 wins!");
+                break;
+            }
+            else if(player2.getNumItems() == 0)
+            {
+                System.out.println("Player 1 wins!");
+                break;
+            }
+
+        }
+
+        scan.close();
+
+    }
+
+    public static void playerHandler(GUI_Input gui, Player player, MiddlePile middlePile) 
+    {
+         // Logic for when player1 places a card
+         if (gui.handleInput().equalsIgnoreCase((player.getAddCardPress()))) {
+            // We may have to include logic that does not allow this when player 1 has no
+            // cards.
+            middlePile.addCard(player.placeCard());
+            // For now, print statement
+            // Here we call the print card function
+            Card.printCard(middlePile.getLast());
+
+        }
+    }
+
+    public static void gameEventHandler(MiddlePile middlePile, GUI_Input gui, Player player1, Player player2) 
+    {
+        // Checking for an event (double or sandwich)
             // We only check for an event if there are cards in the pile
             if (middlePile.getNumItems() > 1) {
                 if (middlePile.checkEvent()) {
@@ -132,36 +167,6 @@ public class EgyptianRatScrew {
                     }
                 }
             }
-
-            if(player1.getNumItems() == 0)
-            {
-                System.out.println("Player 2 wins!");
-                break;
-            }
-            else if(player2.getNumItems() == 0)
-            {
-                System.out.println("Player 1 wins!");
-                break;
-            }
-
-        }
-
-        scan.close();
-
-    }
-
-    public static void playerHandler(GUI_Input gui, Player player, MiddlePile middlePile) 
-    {
-         // Logic for when player1 places a card
-         if (gui.handleInput().equalsIgnoreCase((player.getAddCardPress()))) {
-            // We may have to include logic that does not allow this when player 1 has no
-            // cards.
-            middlePile.addCard(player.placeCard());
-            // For now, print statement
-            // Here we call the print card function
-            Card.printCard(middlePile.getLast());
-
-        }
     }
 
 }
