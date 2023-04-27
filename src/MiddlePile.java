@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-
-
 public class MiddlePile {
     // Instance data
     private Card[] pileArray;
@@ -11,6 +8,8 @@ public class MiddlePile {
     private boolean event;
     private boolean doubleEvent;
     private boolean sandwichEvent;
+    // Stacked last will contain the player who placed the second to last card down (so they can be attacked)
+    private Player stackedLast;
 
 
     // Constructor
@@ -23,6 +22,7 @@ public class MiddlePile {
         this.event = false;
         this.doubleEvent = false;
         this.sandwichEvent = false;
+        this.stackedLast = null;
     }
 
     // Necessary getters. Setters are not needed here
@@ -69,6 +69,16 @@ public class MiddlePile {
     // Use the isEmpty function for a loop within main to add cards to someones deck when they lose.
     public boolean isEmpty(){
         return (numItems == 0);
+    }
+
+    // This function will update with whoever most recently stacked a card and return that player
+    public void updateStackedLast(Player player){
+        this.stackedLast = player;
+
+    }
+
+    public Player getStackedLast(){
+        return this.stackedLast;
     }
 
     // Adding a card to the pile as you play the game
@@ -126,15 +136,13 @@ public class MiddlePile {
         else if (this.last.getFace().equals("Ace")){
             return AttackType.ACE_ATTACK;
         }
-        else if (this.last.getFace().equals("Ten")){
-            return AttackType.TEN_SAVE;
-        }
         else{
             return AttackType.NO_ATTACK;
         }
 
     }
 
+    
 
 
     // Need to add a function where cards are added to the player who wins
