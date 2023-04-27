@@ -102,9 +102,11 @@ public class MiddlePile {
             this.doubleEvent = true;
         }
         // Condition to check for a "sandwich". If the third to last card's face equals the last card's face. 
-        else if (this.thirdToLast.getFace().equals(this.last.getFace())){
-            this.event = true;
-            this.sandwichEvent = false;
+        if (this.getNumItems() > 2){
+            if (this.thirdToLast.getFace().equals(this.last.getFace())){
+                this.event = true;
+                this.sandwichEvent = false;
+            }
         }
 
         return this.event;
