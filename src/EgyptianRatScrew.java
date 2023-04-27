@@ -56,11 +56,13 @@ public class EgyptianRatScrew {
          System.out.println();
          System.out.println("Player 1 begins:");
 
+        boolean player1CardPlace = true;
+        boolean player2CardPlace = false;
+
         // Game logic starts here
         while (!player1.isWin() && !player2.isWin()) {
 
-            boolean player1CardPlace = true;
-            boolean player2CardPlace = false;
+            
 
             
             // Logic for when player1 places a card
@@ -69,12 +71,11 @@ public class EgyptianRatScrew {
                 // cards.
                 middlePile.addCard(player1.placeCard());
                 // For now, print statement
-                System.out.println("Player 1 placed " + middlePile.getLast());
                 // Here we call the print card function
+                Card.printCard(middlePile.getLast());
 
                 player1CardPlace = false;
                 player2CardPlace = true;
-                System.out.println("here");
 
                 // Then program sleeps for a bit, so it doesnt register the input again
                 Thread.sleep(300);
@@ -86,8 +87,10 @@ public class EgyptianRatScrew {
                 // cards.
                 middlePile.addCard(player2.placeCard());
                 // For now, print statement
-                System.out.println("Player 2 placed " + middlePile.getLast());
+                
                 // Here we call the print card function
+                Card.printCard(middlePile.getLast());
+
 
 
                 player1CardPlace = true;
