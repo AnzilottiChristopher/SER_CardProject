@@ -57,7 +57,6 @@ public class EgyptianRatScrew {
          System.out.println("Player 1 begins:");
 
         boolean player1CardPlace = true;
-        boolean player2CardPlace = false;
 
 
         // Game logic starts here
@@ -164,7 +163,16 @@ public class EgyptianRatScrew {
 
                     }
                 }
+                
             }
+
+
+            if (gui.handleInput().equalsIgnoreCase(("space"))){
+                System.out.println("last is " + middlePile.getLast());
+                System.out.println("second to last is " + middlePile.getSecondToLast());
+                System.out.println("third to last is " + middlePile.getThirdToLast());
+            }
+
     }
 
 }
