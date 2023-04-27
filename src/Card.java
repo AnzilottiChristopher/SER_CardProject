@@ -29,19 +29,19 @@ public class Card {
       String suit = null;
       if(card.getSuit().equalsIgnoreCase("diamonds"))
       {
-         suit = "\u2666";
+         suit = "D";
       }
       else if(card.getSuit().equalsIgnoreCase("spades"))
       {
-         suit = "\u2660";
+         suit = "S";
       }
       else if(card.getSuit().equalsIgnoreCase("hearts"))
       {
-         suit = "\u2665";
+         suit = "H";
       }
       else if(card.getSuit().equalsIgnoreCase("clubs"))
       {
-         suit = "\u2663";
+         suit = "C";
       }
 
       System.out.println("┌─────────┐");
