@@ -9,6 +9,8 @@ public class MiddlePile {
     private Card last;
     private int numItems;
     private boolean event;
+    private boolean doubleEvent;
+    private boolean sandwichEvent;
 
 
     // Constructor
@@ -19,6 +21,8 @@ public class MiddlePile {
         this.last = null;
         this.numItems = 0;
         this.event = false;
+        this.doubleEvent = false;
+        this.sandwichEvent = false;
     }
 
     // Necessary getters. Setters are not needed here
@@ -44,6 +48,14 @@ public class MiddlePile {
 
     public boolean isEvent(){
         return this.event;
+    }
+
+    public boolean isDoubleEvent(){
+        return this.doubleEvent;
+    }
+
+    public boolean isSandwichEvent(){
+        return this.sandwichEvent;
     }
 
     // Use the isEmpty function for a loop within main to add cards to someones deck when they lose.
@@ -74,13 +86,17 @@ public class MiddlePile {
     // Checks to see if there is an event, such as sandwich or double
     public boolean checkEvent(){
         this.event = false;
+        this.doubleEvent = false;
+        this.sandwichEvent = false;
         // Condition to check for a "double". If the face of the most recent and the second to most recent are the same.
         if (this.secondToLast.getFace().equals(this.last.getFace())){
             this.event = true;
+            this.doubleEvent = true;
         }
         // Condition to check for a "sandwich". If the third to last card's face equals the last card's face. 
         else if (this.thirdToLast.getFace().equals(this.last.getFace())){
             this.event = true;
+            this.sandwichEvent = false;
         }
 
         return this.event;
@@ -111,8 +127,11 @@ public class MiddlePile {
 
 
 
-    // Need to add a function where cards are added to the player who loses
-    public void cardsToPlayer(){
-    
+    // Need to add a function where cards are added to the player who wins
+    public Card removeCard(){
+        Card tempCard = pileArray[numItems-1];
+        pileArray[numItems-1] = null; 
+        numItems--;
+        return tempCard;
     }
 }

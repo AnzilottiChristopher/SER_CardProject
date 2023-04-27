@@ -43,9 +43,10 @@ public class Player
         return this.numItems;
     }
     // Getter to get the button press that the player has selected
-    public char getButton()
+    public String getButton()
     {
-        return this.buttonPress;
+        String temp = "" + this.buttonPress;
+        return temp;
     }
 
     // Check for win condition

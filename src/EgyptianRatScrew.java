@@ -80,6 +80,31 @@ public class EgyptianRatScrew
                 Thread.sleep(300);
             }
             
+            // Every time a player places a card, we must check for an attack, event, or if someone has won
+
+            // Checking for an event (double or sandwich)
+            if (middlePile.checkEvent()){
+
+                // If there is a double, players must slap, then they get the whole middle pile.
+                while (middlePile.isDoubleEvent()){
+                    // If player 1 slaps, give cards to player 1
+                    if(gui.handleInput().equalsIgnoreCase((player1.getButton()))){
+                        while (middlePile.getNumItems() > 0){
+                            player1.addCard(middlePile.removeCard());
+                        }
+                        break;
+                    }
+                    // If player 2 slaps, give cards to player 2
+                    if(gui.handleInput().equalsIgnoreCase((player2.getButton()))){
+                        while (middlePile.getNumItems() > 0){
+                            player2.addCard(middlePile.removeCard());
+                        }
+                        break;
+                    }
+
+                }
+            }
+
 
 
 
