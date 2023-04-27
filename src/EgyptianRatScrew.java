@@ -57,7 +57,6 @@ public class EgyptianRatScrew {
          System.out.println("Player 1 begins:");
 
         boolean player1CardPlace = true;
-        boolean player2CardPlace = false;
 
 
         // Game logic starts here
@@ -65,22 +64,20 @@ public class EgyptianRatScrew {
 
             
 
-            if(player1CardPlace)
+            if(player1CardPlace && gui.handleInput().equalsIgnoreCase((player1.getAddCardPress())) )
             {
                 EgyptianRatScrew.playerHandler(gui, player1, middlePile);
 
-                player2CardPlace = true;
                 player1CardPlace = false;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
                 // Thread.sleep(300);
             }
 
-            if(player2CardPlace)
+            if(!player1CardPlace && gui.handleInput().equalsIgnoreCase((player2.getAddCardPress())))
             {
                 EgyptianRatScrew.playerHandler(gui, player2, middlePile);
 
-                player2CardPlace = false;
                 player1CardPlace = true;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
@@ -135,7 +132,7 @@ public class EgyptianRatScrew {
             }
 
 
-            if (gui.handleInput().equalsIgnoreCase(("y"))){
+            if (gui.handleInput().equalsIgnoreCase(("space"))){
                 System.out.println("last is " + middlePile.getLast());
                 System.out.println("second to last is " + middlePile.getSecondToLast());
                 System.out.println("third to last is " + middlePile.getThirdToLast());
@@ -160,12 +157,9 @@ public class EgyptianRatScrew {
 
     public static void playerHandler(GUI_Input gui, Player player, MiddlePile middlePile) 
     {
-         // Logic for when player1 places a card
+         // Logic for when player places a card
          if (gui.handleInput().equalsIgnoreCase((player.getAddCardPress()))) {
-            // We may have to include logic that does not allow this when player 1 has no
-            // cards.
             middlePile.addCard(player.placeCard());
-            // For now, print statement
             // Here we call the print card function
             Card.printCard(middlePile.getLast());
 
