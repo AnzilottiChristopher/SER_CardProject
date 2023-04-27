@@ -131,6 +131,14 @@ public class EgyptianRatScrew {
 
                     }
                 }
+                
+            }
+
+
+            if (gui.handleInput().equalsIgnoreCase(("y"))){
+                System.out.println("last is " + middlePile.getLast());
+                System.out.println("second to last is " + middlePile.getSecondToLast());
+                System.out.println("third to last is " + middlePile.getThirdToLast());
             }
 
             if(player1.getNumItems() == 0)

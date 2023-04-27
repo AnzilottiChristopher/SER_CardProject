@@ -105,7 +105,7 @@ public class MiddlePile {
         if (this.getNumItems() > 2){
             if (this.thirdToLast.getFace().equals(this.last.getFace())){
                 this.event = true;
-                this.sandwichEvent = false;
+                this.sandwichEvent = true;
             }
         }
 
