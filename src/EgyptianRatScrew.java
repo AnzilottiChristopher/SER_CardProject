@@ -1,7 +1,7 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Handler;
-import javax.swing.SwingUtilities;
+//import java.util.logging.Handler;
+//import javax.swing.SwingUtilities;
 
 public class EgyptianRatScrew {
     public static void main(String[] args) throws Exception {
@@ -65,22 +65,20 @@ public class EgyptianRatScrew {
 
             
 
-            if(player1CardPlace && !player2CardPlace)
+            if(player1CardPlace && gui.handleInput().equalsIgnoreCase((player1.getAddCardPress())) )
             {
                 EgyptianRatScrew.playerHandler(gui, player1, middlePile);
 
-                player2CardPlace = true;
                 player1CardPlace = false;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
                 // Thread.sleep(300);
             }
 
-            if(player2CardPlace && !player1CardPlace)
+            if(!player1CardPlace && gui.handleInput().equalsIgnoreCase((player2.getAddCardPress())))
             {
                 EgyptianRatScrew.playerHandler(gui, player2, middlePile);
 
-                player2CardPlace = false;
                 player1CardPlace = true;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
