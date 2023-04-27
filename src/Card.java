@@ -44,17 +44,50 @@ public class Card {
          suit = "C";
       }
 
-      System.out.println("┌─────────┐");
+      if(card.getFace().length() == 3)
+      {
+         System.out.println("┌─────────┐");
 
-      // print the card rank and suit
-      System.out.printf("│%s        │\n", suit);
-      System.out.printf("│         │\n");
-      System.out.printf("│    %s    │\n", card.getFace());
-      System.out.printf("│         │\n");
-      System.out.printf("│        %s│\n", suit);
+         // print the card rank and suit
+         System.out.printf("│%s        │\n", suit);
+         System.out.printf("│         │\n");
+         System.out.printf("│ %s     │\n", card.getFace());
+         System.out.printf("│         │\n");
+         System.out.printf("│        %s│\n", suit);
 
-      // print the bottom line of the card
-      System.out.println("└─────────┘");
+         // print the bottom line of the card
+         System.out.println("└─────────┘");
+      }
+      else if(card.getFace().length() == 4)
+      {
+         System.out.println("┌─────────┐");
+
+         // print the card rank and suit
+         System.out.printf("│%s        │\n", suit);
+         System.out.printf("│         │\n");
+         System.out.printf("│ %s    │\n", card.getFace());
+         System.out.printf("│         │\n");
+         System.out.printf("│        %s│\n", suit);
+
+         // print the bottom line of the card
+         System.out.println("└─────────┘");
+      }
+      else if (card.getFace().length() == 5) 
+      {
+         System.out.println("┌─────────┐");
+
+         // print the card rank and suit
+         System.out.printf("│%s        │\n", suit);
+         System.out.printf("│         │\n");
+         System.out.printf("│ %s   │\n", card.getFace());
+         System.out.printf("│         │\n");
+         System.out.printf("│        %s│\n", suit);
+
+         // print the bottom line of the card
+         System.out.println("└─────────┘");
+      }
+      
+      
 
    }
  } 
