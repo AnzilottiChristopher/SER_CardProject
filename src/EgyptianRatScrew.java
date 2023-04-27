@@ -1,7 +1,7 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Handler;
-import javax.swing.SwingUtilities;
+//import java.util.logging.Handler;
+//import javax.swing.SwingUtilities;
 
 public class EgyptianRatScrew {
     public static void main(String[] args) throws Exception {
@@ -84,59 +84,13 @@ public class EgyptianRatScrew {
                 // Thread.sleep(300);
             }
            
-
+            EgyptianRatScrew.gameEventHandler(middlePile, gui, player1, player2);
             
 
             // Every time a player places a card, we must check for an attack, event, or if
             // someone has won
 
-            // Checking for an event (double or sandwich)
-            // We only check for an event if there are cards in the pile
-            if (middlePile.getNumItems() > 1) {
-                if (middlePile.checkEvent()) {
-                    // If there is a double or sandwich, players must slap, then they get the whole middle pile.
-                    while ((middlePile.isDoubleEvent()) || (middlePile.isSandwichEvent())) {
-                        // If player 1 slaps, give cards to player 1
-                        if (gui.handleInput().equalsIgnoreCase((player1.getButton()))) {
-                            while (middlePile.getNumItems() > 0) {
-                                player1.addCard(middlePile.removeCard());
-                            }
-                            middlePile.setDoubleEvent(false);
-                            middlePile.setSandwichEvent(false);
-
-
-                            //System.out.println("player 1 has");
-                            //System.out.println(player1.getNumItems());
-
-                            
-                            break;
-                        }
-                        // If player 2 slaps, give cards to player 2
-                        if (gui.handleInput().equalsIgnoreCase((player2.getButton()))) {
-                            while (middlePile.getNumItems() > 0) {
-                                player2.addCard(middlePile.removeCard());
-                            }
-                            middlePile.setDoubleEvent(false);
-                            middlePile.setSandwichEvent(false);
-
-                            //System.out.println("player 2 has");
-                            //System.out.println(player2.getNumItems());
-
-
-                            break;
-                        }
-
-                    }
-                }
-                
-            }
-
-
-            if (gui.handleInput().equalsIgnoreCase(("space"))){
-                System.out.println("last is " + middlePile.getLast());
-                System.out.println("second to last is " + middlePile.getSecondToLast());
-                System.out.println("third to last is " + middlePile.getThirdToLast());
-            }
+            
 
             if(player1.getNumItems() == 0)
             {
@@ -157,13 +111,68 @@ public class EgyptianRatScrew {
 
     public static void playerHandler(GUI_Input gui, Player player, MiddlePile middlePile) 
     {
-         // Logic for when player places a card
+         // Logic for when player1 places a card
          if (gui.handleInput().equalsIgnoreCase((player.getAddCardPress()))) {
+            // We may have to include logic that does not allow this when player 1 has no
+            // cards.
             middlePile.addCard(player.placeCard());
+            // For now, print statement
             // Here we call the print card function
             Card.printCard(middlePile.getLast());
 
         }
+    }
+
+    public static void gameEventHandler(MiddlePile middlePile, GUI_Input gui, Player player1, Player player2) 
+    {
+        // Checking for an event (double or sandwich)
+            // We only check for an event if there are cards in the pile
+            if (middlePile.getNumItems() > 1) {
+                if (middlePile.checkEvent()) {
+                    // If there is a double or sandwich, players must slap, then they get the whole middle pile.
+                    while ((middlePile.isDoubleEvent()) || (middlePile.isSandwichEvent())) {
+                        // If player 1 slaps, give cards to player 1
+                        if (gui.handleInput().equalsIgnoreCase((player1.getButton()))) {
+                            while (middlePile.getNumItems() > 0) {
+                                player1.addCard(middlePile.removeCard());
+                            }
+                            middlePile.setDoubleEvent(false);
+                            middlePile.setSandwichEvent(false);
+
+
+                            System.out.println("player 1 has");
+                            System.out.println(player1.getNumItems());
+
+                            
+                            break;
+                        }
+                        // If player 2 slaps, give cards to player 2
+                        if (gui.handleInput().equalsIgnoreCase((player2.getButton()))) {
+                            while (middlePile.getNumItems() > 0) {
+                                player2.addCard(middlePile.removeCard());
+                            }
+                            middlePile.setDoubleEvent(false);
+                            middlePile.setSandwichEvent(false);
+
+                            System.out.println("player 2 has");
+                            System.out.println(player2.getNumItems());
+
+
+                            break;
+                        }
+
+                    }
+                }
+                
+            }
+
+
+            if (gui.handleInput().equalsIgnoreCase(("space"))){
+                System.out.println("last is " + middlePile.getLast());
+                System.out.println("second to last is " + middlePile.getSecondToLast());
+                System.out.println("third to last is " + middlePile.getThirdToLast());
+            }
+
     }
 
 }
