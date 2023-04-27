@@ -58,6 +58,14 @@ public class MiddlePile {
         return this.sandwichEvent;
     }
 
+    public void setDoubleEvent(boolean event){
+        this.doubleEvent = event;
+    }
+
+    public void setSandwichEvent(boolean event){
+        this.sandwichEvent = event;
+    }
+
     // Use the isEmpty function for a loop within main to add cards to someones deck when they lose.
     public boolean isEmpty(){
         return (numItems == 0);
