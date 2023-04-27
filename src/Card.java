@@ -11,6 +11,13 @@ public class Card {
        this.suit = cardSuit; // initialize suit of card
     } 
  
+    public String getFace(){
+      return this.face;
+    }
+    public String getSuit(){
+      return this.suit;
+    }
+    
     // return String representation of Card
     public String toString() {             
        return face + " of " + suit;        

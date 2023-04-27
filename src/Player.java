@@ -7,13 +7,15 @@ public class Player
     private final static int deckSize = 52;
     private char buttonPress;
     private int numItems;
+    private char addCardPress;
 
     //Constructor that initializes the player with a button press
-    public Player(char buttonPress)
+    public Player(char buttonPress, char addCardPress)
     {
         this.hand = new ArrayList<Card>(deckSize/2);
         this.buttonPress = buttonPress;
         this.numItems = 0;
+        this.addCardPress = addCardPress;
     }
 
 
@@ -30,6 +32,11 @@ public class Player
     {
         return this.hand;
     }
+
+    public String getAddCardPress(){
+        String temp = "" + this.addCardPress;
+        return temp;
+    }
     
     // Getter to get number of items
     public int getNumItems(){
@@ -39,6 +46,12 @@ public class Player
     public char getButton()
     {
         return this.buttonPress;
+    }
+
+    // Check for win condition
+    public boolean isWin()
+    {
+        return this.numItems == 52;
     }
     
     // Setter to potentially change the button press for the player
@@ -52,6 +65,13 @@ public class Player
     {
         this.hand.add(card);
         this.numItems++;
+    }
+
+    public Card placeCard()
+    {
+        Card placedCard = this.hand.remove(this.numItems-1);
+        numItems--;
+        return placedCard;
     }
     
 }
