@@ -65,41 +65,30 @@ public class EgyptianRatScrew {
 
             
 
-            
-            // Logic for when player1 places a card
-            if (gui.handleInput().equalsIgnoreCase((player1.getAddCardPress())) && player1CardPlace) {
-                // We may have to include logic that does not allow this when player 1 has no
-                // cards.
-                middlePile.addCard(player1.placeCard());
-                // For now, print statement
-                // Here we call the print card function
-                Card.printCard(middlePile.getLast());
+            if(player1CardPlace)
+            {
+                EgyptianRatScrew.playerHandler(gui, player1, middlePile);
 
-                player1CardPlace = false;
                 player2CardPlace = true;
+                player1CardPlace = false;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
-                Thread.sleep(300);
+                // Thread.sleep(300);
             }
 
-            // Logic for when player2 places a card
-            if (gui.handleInput().equalsIgnoreCase((player2.getAddCardPress())) && player2CardPlace) {
-                // We may have to include logic that does not allow this when player 2 has no
-                // cards.
-                middlePile.addCard(player2.placeCard());
-                // For now, print statement
-                
-                // Here we call the print card function
-                Card.printCard(middlePile.getLast());
+            if(player2CardPlace)
+            {
+                EgyptianRatScrew.playerHandler(gui, player2, middlePile);
 
-
-
-                player1CardPlace = true;
                 player2CardPlace = false;
+                player1CardPlace = true;
 
                 // Then program sleeps for a bit, so it doesnt register the input again
-                Thread.sleep(300);
+                // Thread.sleep(300);
             }
+           
+
+            
 
             // Every time a player places a card, we must check for an attack, event, or if
             // someone has won
@@ -146,12 +135,12 @@ public class EgyptianRatScrew {
 
             if(player1.getNumItems() == 0)
             {
-                System.out.println("Player 1 wins!");
+                System.out.println("Player 2 wins!");
                 break;
             }
             else if(player2.getNumItems() == 0)
             {
-                System.out.println("Player 2 wins!");
+                System.out.println("Player 1 wins!");
                 break;
             }
 
@@ -159,6 +148,20 @@ public class EgyptianRatScrew {
 
         scan.close();
 
+    }
+
+    public static void playerHandler(GUI_Input gui, Player player, MiddlePile middlePile) 
+    {
+         // Logic for when player1 places a card
+         if (gui.handleInput().equalsIgnoreCase((player.getAddCardPress()))) {
+            // We may have to include logic that does not allow this when player 1 has no
+            // cards.
+            middlePile.addCard(player.placeCard());
+            // For now, print statement
+            // Here we call the print card function
+            Card.printCard(middlePile.getLast());
+
+        }
     }
 
 }
