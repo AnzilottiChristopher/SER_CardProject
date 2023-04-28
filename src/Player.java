@@ -1,3 +1,11 @@
+/*
+ * Chris Anzilotti, Peter Zegarek
+ * SER 120
+ * This is the class that defines the player
+ * Egyptian Rat-Screw
+ */
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -23,6 +31,10 @@ public class Player
     public Card dealCard()
     {
         this.numItems--;
+        if(numItems == 0)
+        {
+            return null;
+        }
         return hand.remove(0);
         
     }
@@ -50,10 +62,10 @@ public class Player
     }
 
     // Check for win condition
-    public boolean isWin()
-    {
-        return this.numItems == 52;
-    }
+    // public boolean isWin()
+    // {
+    //     return this.numItems == 52;
+    // }
     
     // Setter to potentially change the button press for the player
     public void setButton(char buttonPress)
@@ -68,6 +80,7 @@ public class Player
         this.numItems++;
     }
 
+    //Places the top card
     public Card placeCard()
     {
         Card placedCard = this.hand.remove(this.numItems-1);
@@ -75,7 +88,7 @@ public class Player
         return placedCard;
     }
     
-
+    //Shuffles the players hand
     public void shuffleHand()
     {
         Collections.shuffle(hand);
