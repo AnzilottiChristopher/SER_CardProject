@@ -23,15 +23,17 @@ public class Card {
       return face + " of " + suit;        
    }    
     
+   //This function prints the card
    public static void printCard(Card card)
    {
+      //exception handling
       if(card == null)
       {
          return;
       }
 
-      //These current unicode values don't show up in Terminal IDK why
       String suit = null;
+      //checking what the suit is 
       if(card.getSuit().equalsIgnoreCase("diamonds"))
       {
          suit = "D";
@@ -49,6 +51,7 @@ public class Card {
          suit = "C";
       }
 
+      //Printing cards based on value, word length so it prints correctly
       if(card.getFace().length() == 3)
       {
          System.out.println("┌─────────┐");

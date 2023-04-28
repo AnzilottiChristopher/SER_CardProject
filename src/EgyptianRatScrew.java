@@ -24,11 +24,14 @@ public class EgyptianRatScrew {
         addCardButton = scan.next().charAt(0);
         Player player2 = new Player(keyboardButton, addCardButton);
 
+
+        //Re-stating
         System.out.println("Player 1, you will press " + player1.getButton() + " to slap the deck and "
                 + player1.getAddCardPress() + " to play a card.");
         System.out.println("Player 2, you will press " + player2.getButton() + " to slap the deck and "
                 + player2.getAddCardPress() + " to play a card.");
 
+        //Giving each player half the deck
         deck.shuffle();
         for (int cards = 0; cards < 52; cards++) {
             if (cards % 2 == 0) {
@@ -38,35 +41,48 @@ public class EgyptianRatScrew {
             }
         }
 
+        //Initiliazing the gui that intakes the inputs
         GUI_Input gui = new GUI_Input();
         MiddlePile middlePile = new MiddlePile();
         System.out.println();
         System.out.println("Player 1 begins:");
 
+
+        //This boolean makes it so player 1 can only press once
         boolean player1CardPlace = true;
 
 
         // Game logic starts here
         while (true) {
 
+            //This checks if player 1 can play a card and if the button was player 1's
             if(player1CardPlace && gui.handleInput().equalsIgnoreCase((player1.getAddCardPress())) )
             {
+                //Calling player handler
                 EgyptianRatScrew.playerHandler(gui, player1, player2, middlePile);
 
+                //Switches boolean to false so player 1 can't press again until after player 2
                 player1CardPlace = false;
 
             }
 
+            //This checks if player 2 can play a card and if the button was player 2's
             if(!player1CardPlace && gui.handleInput().equalsIgnoreCase((player2.getAddCardPress())))
             {
+                //Calling player handler
                 EgyptianRatScrew.playerHandler(gui, player2, player1, middlePile);
 
+                //Switches boolean to true so player 1 can press again and player 2 can't play until after player 1
                 player1CardPlace = true;
 
             }
+            
+            //Calling attackhandler 
             EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+            //Calling gameEventHandler
             EgyptianRatScrew.gameEventHandler(middlePile, gui, player1, player2);
             
+            //This checks if one player is out of cards then breaks the loop
             if(player1.getNumItems() == 0)
             {
                 System.out.println("Player 2 wins!");
@@ -114,15 +130,18 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player1.addCard(middlePile.removeCard());
                         }
+                        //This shuffles player 1's hand
                         player1.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
 
+                        //Printing who slapped and how many cards each player has
                         System.out.println("Player 1 slapped!!!");
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
                         System.out.println("Player 2 has " + player2.getNumItems() + " cards");
 
+                        //breaks out of the loop
                         break;
                     }
                     // If player 2 slaps, give cards to player 2
@@ -132,15 +151,18 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player2.addCard(middlePile.removeCard());
                         }
+                        //Shuffling player 2
                         player2.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
 
+                        //Printing who slapped and how many cards each player has
                         System.out.println("Player 2 slapped!!!");
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
                         System.out.println("Player 2 has " + player2.getNumItems() + " cards");
 
+                        //Breaks out of the loop
                         break;
                     }
 
@@ -180,6 +202,7 @@ public class EgyptianRatScrew {
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
 
+                    //Exception handling if a player has no more cards terminate the function
                     if (middlePile.getStackedLast().getNumItems() == 0){
                         return;
                     }
@@ -206,6 +229,7 @@ public class EgyptianRatScrew {
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
 
+                    //Exception handling if a player has no more cards terminate the function
                     if (middlePile.getStackedLast().getNumItems() == 0){
                         return;
                     }
@@ -226,6 +250,7 @@ public class EgyptianRatScrew {
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
 
+                    //Exception handling if a player has no more cards terminate the function
                     if (middlePile.getStackedLast().getNumItems() == 0){
                         return;
                     }
@@ -253,6 +278,7 @@ public class EgyptianRatScrew {
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
 
+                    //Exception handling if a player has no more cards terminate the function
                     if (middlePile.getStackedLast().getNumItems() == 0){
                         return;
                     }
@@ -272,6 +298,12 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    //Exception handling if a player has no more cards terminate the function
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
+
                      // If there is an attack, counterattack
                      if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");
@@ -287,6 +319,12 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    //Exception handling if a player has no more cards terminate the function
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
+                    
                      // If there is an attack, counterattack
                      if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");

@@ -72,6 +72,7 @@ public class Player
         this.numItems++;
     }
 
+    //Places the top card
     public Card placeCard()
     {
         Card placedCard = this.hand.remove(this.numItems-1);
@@ -79,7 +80,7 @@ public class Player
         return placedCard;
     }
     
-
+    //Shuffles the players hand
     public void shuffleHand()
     {
         Collections.shuffle(hand);

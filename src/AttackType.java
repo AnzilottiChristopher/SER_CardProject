@@ -1,3 +1,4 @@
+//Creating Enum class
 public enum AttackType {
     NO_ATTACK,
     JACK_ATTACK,

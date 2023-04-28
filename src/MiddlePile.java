@@ -33,38 +33,47 @@ public class MiddlePile {
         return this.pileArray;
     }
 
+    //Getting the third to last card played
     public Card getThirdToLast() {
         return this.thirdToLast;
     }
 
+    //Getting the second to last card played
     public Card getSecondToLast() {
         return this.secondToLast;
     }
-
+    
+    //Getting the last card played
     public Card getLast() {
         return this.last;
     }
 
+    //Getting the amount of items in middlePile
     public int getNumItems() {
         return this.numItems;
     }
 
+    //Checking if there's an event
     public boolean isEvent(){
         return this.event;
     }
 
+    //Checking if there is another event
     public boolean isDoubleEvent(){
         return this.doubleEvent;
     }
 
+    //Checking if there is a sandwich event
     public boolean isSandwichEvent(){
         return this.sandwichEvent;
     }
 
+    //Checking if there is a double event
     public void setDoubleEvent(boolean event){
         this.doubleEvent = event;
     }
 
+    //Setting the event
     public void setSandwichEvent(boolean event){
         this.sandwichEvent = event;
     }
@@ -80,6 +89,7 @@ public class MiddlePile {
 
     }
 
+    //Get the player who had just placed a card
     public Player getStackedRecent(){
         return this.stackedRecent;
     }
@@ -90,10 +100,12 @@ public class MiddlePile {
 
     }
 
+    //Returns who put the second to last card
     public Player getStackedLast(){
         return this.stackedLast;
     }
 
+    //Swaps which player who put the recent card
     public void swapStackedLast(){
         Player temp = this.stackedLast;
         this.stackedLast = this.stackedRecent;
@@ -103,6 +115,7 @@ public class MiddlePile {
     // Adding a card to the pile as you play the game
     public void addCard(Card card){
 
+        //IDK 
         if (this.numItems == 0){
             this.pileArray[numItems] = card;
         }
@@ -147,10 +160,12 @@ public class MiddlePile {
 
     // This function uses the enum type to check whether there is an attack or not and to return which one it is
     public AttackType checkAttack(){
+        //Exception handling
         if(this.last == null)
         {
             return AttackType.NO_ATTACK;
         }
+        //Checking the last card placed if it's a face card
         if (this.last.getFace().equals("Jack")){
             return AttackType.JACK_ATTACK;
         }
