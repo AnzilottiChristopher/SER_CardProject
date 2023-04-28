@@ -92,7 +92,9 @@ public class EgyptianRatScrew {
             middlePile.addCard(player.placeCard());
             // Here we call the print card function
             Card.printCard(middlePile.getLast());
+            // Update who stacked the card and who stacked the second to last card
             middlePile.updateStackedLast(otherPlayer);
+            middlePile.updateStackedRecent(player);
 
         }
     }
@@ -103,6 +105,7 @@ public class EgyptianRatScrew {
         // We only check for an event if there are at least 2 cards in the pile
         if (middlePile.getNumItems() > 1) {
             if (middlePile.checkEvent()) {
+                System.out.println("SLAP!!!");
                 // If there is a double or sandwich, players must slap, then they get the whole middle pile.
                 while ((middlePile.isDoubleEvent()) || (middlePile.isSandwichEvent())) {
                     // If player 1 slaps, give cards to player 1
@@ -114,6 +117,9 @@ public class EgyptianRatScrew {
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
+                        System.out.println("Player 1 slapped!!!");
+                        System.out.println("Player 1 has " + player1.getNumItems() + " cards");
+                        System.out.println("Player 2 has " + player2.getNumItems() + " cards");
                         break;
                     }
                     // If player 2 slaps, give cards to player 2
@@ -126,6 +132,9 @@ public class EgyptianRatScrew {
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
+                        System.out.println("Player 2 slapped!!!");
+                        System.out.println("Player 1 has " + player1.getNumItems() + " cards");
+                        System.out.println("Player 2 has " + player2.getNumItems() + " cards");
                         break;
                     }
 
@@ -133,8 +142,6 @@ public class EgyptianRatScrew {
             }
 
         }
-
-        
 
         // Here we will print the status of the game if someone presses 0.
         if (gui.handleInput().equalsIgnoreCase(("0"))) {
@@ -166,6 +173,13 @@ public class EgyptianRatScrew {
                     System.out.println("There is a queen attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                    // If there is an attack, counterattack
+                    if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
@@ -181,6 +195,13 @@ public class EgyptianRatScrew {
                     System.out.println("There is a king attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                     // If there is an attack, counterattack
+                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
@@ -189,6 +210,13 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                     // If there is an attack, counterattack
+                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
@@ -204,6 +232,13 @@ public class EgyptianRatScrew {
                     System.out.println("There is an ace attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                     // If there is an attack, counterattack
+                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
@@ -212,6 +247,13 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                     // If there is an attack, counterattack
+                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
@@ -220,6 +262,13 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+                     // If there is an attack, counterattack
+                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
+                        System.out.println("COUNTERATTACK!!!");
+                        middlePile.swapStackedLast();
+                        EgyptianRatScrew.attackHandler(middlePile, gui, player1, player2);
+                        return;
+                    }
                     // If there is an event or a ten, cancel the attack.
                     if (middlePile.checkEvent() || middlePile.getLast().getFace().equals("Ten")){
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
