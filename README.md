@@ -14,6 +14,7 @@ To run our program go to the EgyptianRatScrew file and follow the following inst
     -java EgyptianRatScrew
     
 Playing the Game:
+
   After running the game the terminal will ask you a few questions for button inputs
 
   After answering the questions a popup will appear click on it
@@ -32,3 +33,5 @@ Playing the Game:
 
 If the attacked player places a 10 the attack stops 
 
+ If at any point you want to check the status of the player's hands, press 0.
+ 
