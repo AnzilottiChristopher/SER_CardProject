@@ -111,6 +111,7 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player1.addCard(middlePile.removeCard());
                         }
+                        player1.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
@@ -125,6 +126,7 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player2.addCard(middlePile.removeCard());
                         }
+                        player2.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);

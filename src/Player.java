@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player 
 {
@@ -17,7 +18,6 @@ public class Player
         this.numItems = 0;
         this.addCardPress = addCardPress;
     }
-
 
     // Function to deal cards from the player's deck to the middle pile
     public Card dealCard()
@@ -75,4 +75,8 @@ public class Player
         return placedCard;
     }
     
+    public void shuffleHand()
+    {
+        Collections.shuffle(hand);
+    }
 }
