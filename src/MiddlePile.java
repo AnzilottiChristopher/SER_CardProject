@@ -10,6 +10,8 @@ public class MiddlePile {
     private boolean sandwichEvent;
     // Stacked last will contain the player who placed the second to last card down (so they can be attacked)
     private Player stackedLast;
+    // stackedRecent contains the player who placed the most recent card (to be counterattacked)
+    private Player stackedRecent;
 
 
     // Constructor
@@ -23,6 +25,7 @@ public class MiddlePile {
         this.doubleEvent = false;
         this.sandwichEvent = false;
         this.stackedLast = null;
+        this.stackedRecent = null;
     }
 
     // Necessary getters. Setters are not needed here
@@ -71,9 +74,19 @@ public class MiddlePile {
         return (numItems == 0);
     }
 
-    // This function will update with whoever most recently stacked a card and return that player
+    // This function will update with whoever 2nd most recently stacked a card
     public void updateStackedLast(Player player){
         this.stackedLast = player;
+
+    }
+
+    public Player getStackedRecent(){
+        return this.stackedRecent;
+    }
+
+    // This function will update with whoever most recently placed a card
+    public void updateStackedRecent(Player player){
+        this.stackedRecent = player;
 
     }
 
@@ -81,6 +94,12 @@ public class MiddlePile {
         return this.stackedLast;
     }
 
+    public void swapStackedLast(){
+        Player temp = this.stackedLast;
+        this.stackedLast = this.stackedRecent;
+        this.stackedRecent = temp;
+
+    }
     // Adding a card to the pile as you play the game
     public void addCard(Card card){
 

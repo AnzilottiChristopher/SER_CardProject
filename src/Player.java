@@ -75,6 +75,7 @@ public class Player
         return placedCard;
     }
     
+
     public void shuffleHand()
     {
         Collections.shuffle(hand);
