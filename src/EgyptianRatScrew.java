@@ -29,7 +29,7 @@ public class EgyptianRatScrew {
         Player player2 = new Player(keyboardButton, addCardButton);
 
 
-        //Re-stating
+        //Re-stating what buttons players use
         System.out.println("Player 1, you will press " + player1.getButton() + " to slap the deck and "
                 + player1.getAddCardPress() + " to play a card.");
         System.out.println("Player 2, you will press " + player2.getButton() + " to slap the deck and "
@@ -86,7 +86,7 @@ public class EgyptianRatScrew {
             //Calling gameEventHandler
             EgyptianRatScrew.gameEventHandler(middlePile, gui, player1, player2);
             
-            //This checks if one player is out of cards then breaks the loop
+            //This checks if one player is out of cards then breaks the loop if so
             if(player1.getNumItems() == 0)
             {
                 System.out.println("Player 2 wins!");
@@ -150,14 +150,13 @@ public class EgyptianRatScrew {
                     }
                     // If player 2 slaps, give cards to player 2
                     if (gui.handleInput().equalsIgnoreCase((player2.getButton()))) {
-                        // while there are cards in the middle pile, remove them and give them to
-                        // player1.
+                        // while there are cards in the middle pile, remove them and give them to player2.
                         while (middlePile.getNumItems() > 0) {
                             player2.addCard(middlePile.removeCard());
                         }
                         //Shuffling player 2
                         player2.shuffleHand();
-                        // set event conditions to false and print out the number of cards player 1 has.
+                        // set event conditions to false and print out the number of cards player 2 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
 

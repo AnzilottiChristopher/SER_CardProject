@@ -28,7 +28,6 @@ Playing the Game:
 
   When a face card appears (J, Q, K, A), the attacked player has to play 1-4 cards depending on which face (J = 1, Q = 2, K = 3, A = 4)
 
-  If the attacked player doesn't respond with a face card or a 10 the attacking player gains the middle pile
   If there is a sandwich or double while someone's being attacked either player can still slap and gain the middle pile
 
 If the attacked player places a 10 the attack stops 
