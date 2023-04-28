@@ -1,3 +1,11 @@
+/*
+ * Chris Anzilotti, Peter Zegarek
+ * SER 120
+ * This is the class that defines the middle pile
+ * Egyptian Rat-Screw
+ */
+
+
 public class MiddlePile {
     // Instance data
     private Card[] pileArray;

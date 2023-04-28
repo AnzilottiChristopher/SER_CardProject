@@ -1,7 +1,11 @@
-//import java.util.ArrayList;
+/*
+ * Chris Anzilotti, Peter Zegarek
+ * SER 120
+ * This is the driver class to run the game
+ * Egyptian Rat-Screw
+ */
+
 import java.util.Scanner;
-//import java.util.logging.Handler;
-//import javax.swing.SwingUtilities;
 
 public class EgyptianRatScrew {
     public static void main(String[] args) throws Exception {

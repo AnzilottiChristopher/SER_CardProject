@@ -1,3 +1,11 @@
+/*
+ * Chris Anzilotti, Peter Zegarek
+ * SER 120
+ * This is the class that defines the player
+ * Egyptian Rat-Screw
+ */
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 
