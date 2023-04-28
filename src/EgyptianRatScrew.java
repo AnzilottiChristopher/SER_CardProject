@@ -114,12 +114,15 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player1.addCard(middlePile.removeCard());
                         }
+                        player1.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
+
                         System.out.println("Player 1 slapped!!!");
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
                         System.out.println("Player 2 has " + player2.getNumItems() + " cards");
+
                         break;
                     }
                     // If player 2 slaps, give cards to player 2
@@ -129,12 +132,15 @@ public class EgyptianRatScrew {
                         while (middlePile.getNumItems() > 0) {
                             player2.addCard(middlePile.removeCard());
                         }
+                        player2.shuffleHand();
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
+
                         System.out.println("Player 2 slapped!!!");
                         System.out.println("Player 1 has " + player1.getNumItems() + " cards");
                         System.out.println("Player 2 has " + player2.getNumItems() + " cards");
+
                         break;
                     }
 
