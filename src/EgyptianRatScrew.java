@@ -115,8 +115,7 @@ public class EgyptianRatScrew {
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
-                        System.out.println("player 1 has");
-                        System.out.println(player1.getNumItems());
+
                         break;
                     }
                     // If player 2 slaps, give cards to player 2
@@ -130,8 +129,7 @@ public class EgyptianRatScrew {
                         // set event conditions to false and print out the number of cards player 1 has.
                         middlePile.setDoubleEvent(false);
                         middlePile.setSandwichEvent(false);
-                        System.out.println("player 2 has");
-                        System.out.println(player2.getNumItems());
+           
                         break;
                     }
 
