@@ -122,6 +122,10 @@ public class MiddlePile {
 
     // Checks to see if there is an event, such as sandwich or double
     public boolean checkEvent(){
+        if(this.last == null)
+        {
+            return false;
+        }
         this.event = false;
         this.doubleEvent = false;
         this.sandwichEvent = false;
@@ -143,6 +147,10 @@ public class MiddlePile {
 
     // This function uses the enum type to check whether there is an attack or not and to return which one it is
     public AttackType checkAttack(){
+        if(this.last == null)
+        {
+            return AttackType.NO_ATTACK;
+        }
         if (this.last.getFace().equals("Jack")){
             return AttackType.JACK_ATTACK;
         }

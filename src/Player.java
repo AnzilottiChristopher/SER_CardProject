@@ -23,6 +23,10 @@ public class Player
     public Card dealCard()
     {
         this.numItems--;
+        if(numItems == 0)
+        {
+            return null;
+        }
         return hand.remove(0);
         
     }
@@ -50,10 +54,10 @@ public class Player
     }
 
     // Check for win condition
-    public boolean isWin()
-    {
-        return this.numItems == 52;
-    }
+    // public boolean isWin()
+    // {
+    //     return this.numItems == 52;
+    // }
     
     // Setter to potentially change the button press for the player
     public void setButton(char buttonPress)

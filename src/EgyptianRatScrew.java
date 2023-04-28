@@ -40,14 +40,14 @@ public class EgyptianRatScrew {
 
         GUI_Input gui = new GUI_Input();
         MiddlePile middlePile = new MiddlePile();
-         System.out.println();
-         System.out.println("Player 1 begins:");
+        System.out.println();
+        System.out.println("Player 1 begins:");
 
         boolean player1CardPlace = true;
 
 
         // Game logic starts here
-        while (!player1.isWin() && !player2.isWin()) {
+        while (true) {
 
             if(player1CardPlace && gui.handleInput().equalsIgnoreCase((player1.getAddCardPress())) )
             {
@@ -179,6 +179,10 @@ public class EgyptianRatScrew {
                     System.out.println("There is a queen attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
                     // If there is an attack, counterattack
                     if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");
@@ -201,6 +205,11 @@ public class EgyptianRatScrew {
                     System.out.println("There is a king attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
+
                      // If there is an attack, counterattack
                      if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");
@@ -216,6 +225,11 @@ public class EgyptianRatScrew {
                     }
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
+
                      // If there is an attack, counterattack
                      if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");
@@ -238,6 +252,11 @@ public class EgyptianRatScrew {
                     System.out.println("There is an ace attack!");
                     middlePile.addCard(middlePile.getStackedLast().dealCard());
                     Card.printCard(middlePile.getLast());
+
+                    if (middlePile.getStackedLast().getNumItems() == 0){
+                        return;
+                    }
+
                      // If there is an attack, counterattack
                      if (middlePile.checkAttack() != AttackType.NO_ATTACK){
                         System.out.println("COUNTERATTACK!!!");
