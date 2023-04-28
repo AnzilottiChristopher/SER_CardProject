@@ -18,7 +18,7 @@ public class Player
     private int numItems;
     private char addCardPress;
 
-    //Constructor that initializes the player with a button press
+    //Constructor that initializes the player with a button press for slapping and for adding cards
     public Player(char buttonPress, char addCardPress)
     {
         this.hand = new ArrayList<Card>(deckSize/2);
@@ -30,11 +30,11 @@ public class Player
     // Function to deal cards from the player's deck to the middle pile
     public Card dealCard()
     {
-        this.numItems--;
         if(numItems == 0)
         {
             return null;
         }
+        this.numItems--;
         return hand.remove(0);
         
     }
@@ -45,6 +45,8 @@ public class Player
         return this.hand;
     }
 
+    // Getter to get the button the player is pressing to add a card to the middlePile
+    // Of type string because easier to manipulate
     public String getAddCardPress(){
         String temp = "" + this.addCardPress;
         return temp;
@@ -55,6 +57,7 @@ public class Player
         return this.numItems;
     }
     // Getter to get the button press that the player has selected
+    // Of type string because easier to manipulate
     public String getButton()
     {
         String temp = "" + this.buttonPress;

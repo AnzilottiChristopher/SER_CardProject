@@ -12,7 +12,7 @@ public class GUI_Input extends JFrame
 
         //Most of this class was made possible because of online resources
 
-        //Creastes a jframe
+        //Creates a jframe
         JFrame frame = new JFrame("Read Console Test");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,7 +42,7 @@ public class GUI_Input extends JFrame
         frame.setVisible(true);
     }
 
-    //This function takes what the user inputs returns it and clears it immediately
+    //This function takes what the user inputs, returns it, and clears it immediately
     public String handleInput() {
         String input = textField.getText();
         if (input.equals("exit")) {
@@ -51,18 +51,19 @@ public class GUI_Input extends JFrame
         } else if (!clearingText) {
             SwingUtilities.invokeLater(() -> {
                 clearingText = true;
+                // Clearing the textField
                 textField.setText("");
                 clearingText = false;
             });
-            //System.out.println(input);
                 return input;
             
             
         }
-        
+        // This returns a blank input if necessary
         return input;
     }
-
+    
+    // Function to clear the text field if necessary
     public void clearText(){
         textField.setText("");
     }

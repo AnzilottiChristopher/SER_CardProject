@@ -36,7 +36,7 @@ public class MiddlePile {
         this.stackedRecent = null;
     }
 
-    // Necessary getters. Setters are not needed here
+    // Necessary getters and setters
     public Card[] getPileArray() {
         return this.pileArray;
     }
@@ -66,30 +66,30 @@ public class MiddlePile {
         return this.event;
     }
 
-    //Checking if there is another event
+    //Checking if there is a "double" event
     public boolean isDoubleEvent(){
         return this.doubleEvent;
     }
 
-    //Checking if there is a sandwich event
+    //Checking if there is a "sandwich" event
     public boolean isSandwichEvent(){
         return this.sandwichEvent;
     }
 
-    //Checking if there is a double event
+    // Setter for "double" event
     public void setDoubleEvent(boolean event){
         this.doubleEvent = event;
     }
 
-    //Setting the event
+    // Setter for "sandwich" event
     public void setSandwichEvent(boolean event){
         this.sandwichEvent = event;
     }
 
-    // Use the isEmpty function for a loop within main to add cards to someones deck when they lose.
-    public boolean isEmpty(){
-        return (numItems == 0);
-    }
+    // Use the isEmpty function for a loop within main to add cards to someone's deck when they lose.
+    // public boolean isEmpty(){
+    //     return (numItems == 0);
+    // }
 
     // This function will update with whoever 2nd most recently stacked a card
     public void updateStackedLast(Player player){
@@ -113,7 +113,7 @@ public class MiddlePile {
         return this.stackedLast;
     }
 
-    //Swaps which player who put the recent card
+    //Swaps which player who put the recent card with who put the second most recent card. Neccessary for counter-attacking
     public void swapStackedLast(){
         Player temp = this.stackedLast;
         this.stackedLast = this.stackedRecent;
@@ -123,18 +123,20 @@ public class MiddlePile {
     // Adding a card to the pile as you play the game
     public void addCard(Card card){
 
-        //IDK 
+        // If there are no items, only set this.last
         if (this.numItems == 0){
             this.pileArray[numItems] = card;
         }
+        // If there is one item, only set this.last and this.secondToLast
         else if (this.numItems == 1){
             this.pileArray[numItems] =card;
-            secondToLast = this.pileArray[numItems-1];
+           this.secondToLast = this.pileArray[numItems-1];
         }
+        // Else set this.last, this.secondToLast, this.thirdToLast
         else {
             this.pileArray[numItems] =card;
-            secondToLast = this.pileArray[numItems-1];
-            thirdToLast = this.pileArray[numItems-2];
+            this.secondToLast = this.pileArray[numItems-1];
+            this.thirdToLast = this.pileArray[numItems-2];
         }
         this.last = card;
         numItems++;
@@ -143,10 +145,12 @@ public class MiddlePile {
 
     // Checks to see if there is an event, such as sandwich or double
     public boolean checkEvent(){
+        // Error handling
         if(this.last == null)
         {
             return false;
         }
+        // Setting all events to false, so we can check for them
         this.event = false;
         this.doubleEvent = false;
         this.sandwichEvent = false;
@@ -195,7 +199,7 @@ public class MiddlePile {
     
 
 
-    // Need to add a function where cards are added to the player who wins
+    // Remove card from the middlePile (to be added to player)
     public Card removeCard(){
         Card tempCard = pileArray[numItems-1];
         pileArray[numItems-1] = null; 

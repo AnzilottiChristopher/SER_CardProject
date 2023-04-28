@@ -1,8 +1,0 @@
-class Test
-{
-    public static void main(String a[]) {
-        AttackType at = AttackType.ACE_ATTACK;
-
-        if(checkAttack() == AttackType.)
-    }
-}
