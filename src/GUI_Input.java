@@ -10,7 +10,7 @@ public class GUI_Input extends JFrame
 
     public GUI_Input() {
 
-        //Code was obtained from online resources
+        //Most of this class was made possible because of online resources
 
         //Creastes a jframe
         JFrame frame = new JFrame("Read Console Test");
